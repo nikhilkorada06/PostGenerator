@@ -1,0 +1,20 @@
+/* Global app styles */
+html,body,#root{
+	height:100%;
+}
+body{
+	margin:0;
+	background: radial-gradient(1200px 600px at 10% 10%, #071028 0%, transparent 10%),
+							radial-gradient(1000px 500px at 90% 90%, #08122a 0%, transparent 8%),
+							linear-gradient(180deg,#071229,#021027);
+	color: #e6eef8;
+	font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	padding: 28px;
+}
+
+h1{ font-size:22px; margin:0 0 8px 0; }
+
+div{ max-width:1100px; margin: 0 auto; }
+

@@ -1,0 +1,217 @@
+/* HomePage styles: layout, form controls, and post cards */
+:root{
+	--bg-1:#0f172a;
+	--bg-2:#0b1220;
+	--card:#0b1228;
+	--accent:#6ee7b7;
+	--muted:#94a3b8;
+	--glass: rgba(255,255,255,0.04);
+}
+
+body{
+	font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Page title styling */
+#page-title{
+    display:block; /* block by default so underline can span full width */
+    text-align:center;
+    font-size:32px;
+    font-weight:800;
+    margin:0 0 12px 0;
+    padding:6px 14px;
+    letter-spacing:0.2px;
+    background: linear-gradient(90deg,#60a5fa,#7dd3fc,#86efac);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 6px 20px rgba(96,165,250,0.06);
+}
+
+/* Underline: full-width by default (centered, limited by max-width) */
+#page-title::after{
+    content: '';
+    display:block;
+    height:6px;
+    width:100%;
+    max-width:1100px; /* limit so it doesn't stretch too far on very wide screens */
+    margin:10px auto 0 auto;
+    border-radius:4px;
+    background: linear-gradient(90deg,#7dd3fc,#60a5fa);
+    opacity:0.95;
+}
+
+/* If you want the underline to match only the heading width, add class 'short-underline' to the h1: <h1 id="page-title" className="short-underline">... */
+#page-title.short-underline{ display:inline-block; }
+#page-title.short-underline::after{ width:64px; max-width:none; }
+
+
+/* Layout for posts */
+.posts-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.post-card{
+    /* light card so black text is readable */
+    background: linear-gradient(180deg,#ffffff,#fbfdff);
+    border: 1px solid rgba(2,6,23,0.06);
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(2,6,23,0.06);
+    color: #0b1220;
+}
+
+.platform{
+    display: inline-block;
+    background: linear-gradient(90deg, var(--accent), #60a5fa);
+    color: #021022;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.post-content{
+    margin-top: 8px;
+    line-height: 1.45;
+    color: #0b1220; /* black/dark text for descriptions */
+}
+
+.post-line{ margin-bottom: 6px; }
+
+.hashtag{
+    color: #2563eb;
+    font-weight: 700;
+}
+
+.raw-response{
+    white-space: pre-wrap;
+    background: #ffffff;
+    padding: 14px;
+    border-radius: 10px;
+    color: #0b1220; /* black text in raw response */
+    border: 1px solid rgba(2,6,23,0.06);
+    box-shadow: 0 6px 18px rgba(2,6,23,0.04);
+}
+
+form{ margin-top: 18px; }
+
+/* Center the 'Enter your text here' section and style its heading */
+.section-center{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+}
+
+.section-title{
+    font-size:20px;
+    font-weight:800;
+    margin:0 0 10px 0;
+    padding:4px 10px;
+    letter-spacing:0.2px;
+    background: linear-gradient(90deg,#60a5fa,#7dd3fc,#86efac);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align:center;
+}
+
+/* slightly smaller decorative underline for the section title */
+.section-title::after{
+    content: '';
+    display:block;
+    height:4px;
+    width:120px;
+    margin:8px auto 0 auto;
+    border-radius:4px;
+    background: linear-gradient(90deg,#7dd3fc,#60a5fa);
+    opacity:0.95;
+}
+
+/* when centered, make textarea sized relative to container */
+.section-center textarea#rawText{
+    width:84%;
+    max-width:900px;
+}
+
+/* Loading message shown while waiting for API response */
+.loading-message{
+    margin-top:12px;
+    padding:8px 12px;
+    background: linear-gradient(90deg,#60a5fa,#7dd3fc);
+    color:#021022;
+    font-weight:700;
+    border-radius:8px;
+    display:inline-block;
+}
+
+button:disabled{ opacity:0.7; cursor:default; }
+
+/* Textarea: more visible text, smaller default, clear borders and focus state */
+textarea#rawText{
+    box-sizing: border-box;
+    width: 92%;
+    max-width: 900px;
+    min-width: 360px;
+    min-height: 140px;
+    background: rgba(15,23,42,0.85);
+    border: 1px solid rgba(125,211,252,0.45);
+    color: #f8fafc;
+    caret-color: var(--accent);
+    padding: 12px;
+    border-radius: 8px;
+    resize: both; /* allow horizontal and vertical resize */
+    overflow: auto;
+    transition: border-color 160ms ease, box-shadow 160ms ease, transform 120ms ease;
+}
+
+textarea#rawText::placeholder{ color: rgba(230,238,248,0.45); }
+
+textarea#rawText:focus{
+    outline: none;
+    border-color: rgba(125,211,252,0.9);
+    box-shadow: 0 10px 30px rgba(125,211,252,0.08);
+    transform: translateY(-1px);
+}
+
+input[type="checkbox"]{ transform: scale(1.05); margin-right: 8px; }
+
+button{
+    margin-top: 12px;
+    background: linear-gradient(90deg,#60a5fa,#7dd3fc);
+    color:#021022;
+    border:none;
+    padding:10px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+button:hover{ opacity:0.95; transform: translateY(-1px); }
+
+/* Platforms list horizontally */
+.platforms{
+    display:flex;
+    gap:16px;
+    align-items:center;
+    flex-wrap:wrap;
+    margin-top:8px;
+}
+.platforms{ justify-content:center; }
+.platforms > div{ display:flex; align-items:center; gap:8px; }
+
+.center-row{ display:flex; justify-content:center; width:100%; }
+
+@media (max-width:640px){
+    .posts-container{ grid-template-columns: 1fr; }
+    textarea#rawText{ min-height:120px; }
+    .platforms{ gap:10px; }
+}
+
+
