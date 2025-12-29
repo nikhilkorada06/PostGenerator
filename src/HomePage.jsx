@@ -47,7 +47,7 @@ const HomePage = () => {
       const myHeaders = new Headers();
       myHeaders.append(
         "Authorization",
-        "Bearer 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"
+        "Bearer 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"
       );
       myHeaders.append("Content-Type", "application/json");
 
@@ -238,9 +238,5 @@ const HomePage = () => {
   );
 };
 
-
-<<<<<<< Updated upstream
-export default HomePage
-=======
 export default HomePage;
->>>>>>> Stashed changes
+
