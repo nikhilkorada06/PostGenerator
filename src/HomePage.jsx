@@ -93,7 +93,7 @@ const HomePage = () => {
         .finally(() => setLoading(false));
     } 
     catch (err) {
-      console.error("Error in contacting OpenRouter:", err);
+      console.error("Error in contacting OpenRouter:", err)
     }
   }
 
