@@ -115,7 +115,6 @@ const HomePage = () => {
           ></textarea>
         </div>
         <br />
-
         
         <h3 className="section-title">Select Platforms:</h3>
         <div className="platforms">
