@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import "./HomePage.css";
 
+const OpenRouterApiKey = import.meta.env.VITE_OPENROUTER_API_KEY;
+
 const HomePage = () => {
   const [formData, setFormData] = useState({
     rawText: "",
@@ -47,7 +49,7 @@ const HomePage = () => {
       const myHeaders = new Headers();
       myHeaders.append(
         "Authorization",
-        "Bearer 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"
+        `Bearer ${OpenRouterApiKey}`
       );
       myHeaders.append("Content-Type", "application/json");
 
